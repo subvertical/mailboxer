@@ -29,12 +29,6 @@ class Mailboxer::Receipt < ActiveRecord::Base
   #TODO  Patched Victor Christensen at 2:40 PM on 6/11/16
   # patched line below to deal with a conflict with permanent_records gem; method with same name
   # scope :deleted, lambda { where(:deleted => true) }
-  if defined? deleted
-    scope :mb_deleted, lambda { where(:deleted => true) }
-  else
-    scope :deleted, lambda { where(:deleted => true) }
-  end
-
 
   scope :not_deleted, lambda { where(:deleted => false) }
   scope :is_read, lambda { where(:is_read => true) }
